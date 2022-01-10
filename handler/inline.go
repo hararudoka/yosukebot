@@ -12,6 +12,8 @@ func (h Handler) Query(c tb.Context) error {
 	switch command {
 	case "p", "pass", "password":
 		return h.OnPassword(c, args[1:])
+	case "s", "short":
+		return h.OnShorter(c, args[1:])
 	default:
 		return h.OnHelp(c)
 	}
