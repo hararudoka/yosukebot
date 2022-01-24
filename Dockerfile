@@ -1,5 +1,6 @@
-FROM golang:alpine
+FROM golang:alpine as build-env
+LABEL maintainer="hararudoka@gmail.com"
+COPY . /app
 WORKDIR /app
-COPY . .
-RUN go mod download && CGO_ENABLED=0 go build -o /usr/bin/main cmd/blog/main.go
-ENTRYPOINT ["main"]
+RUN go mod download && go build -o /usr/bin/yosukebot cmd/main.go
+ENTRYPOINT ["yosukebot"]

@@ -16,7 +16,7 @@ func (cs *Commands) Add(c Command) {
 }
 
 func (cs Commands) Get(s string) Command {
-	for _, e := range cs{
+	for _, e := range cs {
 		if ok, n := e.IsIn(s); ok {
 			return cs[n]
 		}
@@ -33,4 +33,3 @@ func (c Command) IsIn(s string) (bool, int) {
 	}
 	return false, 0
 }
-

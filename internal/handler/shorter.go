@@ -37,9 +37,9 @@ func (h Handler) OnShorter(c tb.Context, args []string) error {
 	return err
 }
 
-func short(u string) (string,error) {
+func short(u string) (string, error) {
 	postBody, _ := json.Marshal(map[string]string{
-		"url":  u,
+		"url": u,
 	})
 	responseBody := bytes.NewBuffer(postBody)
 	r, err := http.Post("https://h.mxf.su/api", "application/json", responseBody)
@@ -52,6 +52,5 @@ func short(u string) (string,error) {
 	if err != nil {
 		return " ", err
 	}
-	return string(body[1:len(body)-2]), nil
+	return string(body[1 : len(body)-2]), nil
 }
-

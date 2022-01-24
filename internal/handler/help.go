@@ -25,6 +25,5 @@ func (h *Handler) OnHelp(c tb.Context) error {
 
 	err := c.Answer(&huet)
 
-
 	return err
 }

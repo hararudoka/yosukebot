@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 	"time"
-	"yosukebot/handler"
+	"yosukebot/internal/handler"
 
 	tb "gopkg.in/tucnak/telebot.v3"
 )

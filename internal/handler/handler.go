@@ -5,7 +5,7 @@ import (
 )
 
 type Handler struct {
-	Bot *tb.Bot
+	Bot      *tb.Bot
 	Commands Commands
 }
 
@@ -34,8 +34,6 @@ func NewHandler(b *tb.Bot) (*Handler, error) {
 	return h, nil
 }
 
-
-
 func (h *Handler) Start() {
 	//h.Bot.Handle("/music", h.Music)
 
@@ -45,5 +43,3 @@ func (h *Handler) Start() {
 
 	h.Bot.Start()
 }
-
-
