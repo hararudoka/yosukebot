@@ -80,4 +80,4 @@ jobs:
             --restart always \
             --publish 8000:8000 \
             --name $(echo $CONTAINER_NAME) \
-            haraldka/yosukebot:$(echo $GITHUB_SHA | head -c7)
+            -d haraldka/yosukebot:$(echo $GITHUB_SHA | head -c7)
