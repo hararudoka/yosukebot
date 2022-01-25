@@ -1,7 +1,9 @@
 package main
 
 import (
+	"github.com/joho/godotenv"
 	"log"
+	"os"
 	"time"
 	"yosukebot/internal/handler"
 
@@ -10,11 +12,19 @@ import (
 
 func main() {
 	//log.SetFlags(log.Lshortfile)
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+
+	token := os.Getenv("TOKEN")
 
 	b, err := tb.NewBot(tb.Settings{
-		Token:  "5010011691:AAE_2wG6GZq9bchf27LKHZxxFo3oxVkjn44",
+		Token:  token,
 		Poller: &tb.LongPoller{Timeout: 10 * time.Second},
 	})
+
+	log.Println("запущено работает")
 
 	if err != nil {
 		log.Fatal(err)

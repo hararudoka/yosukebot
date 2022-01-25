@@ -2,12 +2,15 @@ package handler
 
 import (
 	tb "gopkg.in/tucnak/telebot.v3"
+	"log"
 	"strings"
 )
 
-func (h Handler) Query(c tb.Context) error {
+func (h *Handler) Query(c tb.Context) error {
 	command := strings.Split(c.Data(), " ")[0]
 	args := c.Args()
+
+	log.Println("пришёл инлайн")
 
 	switch command {
 	case "p", "pass", "password":
