@@ -19,7 +19,7 @@ func main() {
 		Poller: &tb.LongPoller{Timeout: 10 * time.Second},
 	})
 
-	log.Println("запущено работает")
+	log.Println("запущено работает!!!")
 
 	if err != nil {
 		log.Fatal(err)
