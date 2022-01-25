@@ -3,15 +3,14 @@ name: CI
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 env:
   REGISTRY: "docker.io/haraldka/yosukebot"
   IMAGE_NAME: "bot"
   CONTAINER_NAME: "bot"
-  ENV_FILE_PATH: "./.env"
   LOGS_PATH: "/root/bot/api/logs/prod"
 
 jobs:
@@ -60,7 +59,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSHKEY }}
           port: ${{ secrets.PORT }}
-          envs: IMAGE_NAME,REGISTRY,GITHUB_SHA,LOGS_PATH,ENV_FILE_PATH,CONTAINER_NAME
+          envs: IMAGE_NAME,REGISTRY,GITHUB_SHA,LOGS_PATH,CONTAINER_NAME
           script: |
             # Set env variables
             # export POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}
