@@ -8,7 +8,7 @@ on:
     branches:
       - main
 env:
-  REGISTRY: "docker.io/haraldka"
+  REGISTRY: "haraldka"
   IMAGE_NAME: "yosukebot"
   CONTAINER_NAME: "bot"
   LOGS_PATH: "/root/bot/api/logs/prod"
