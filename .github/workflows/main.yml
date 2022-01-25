@@ -44,7 +44,7 @@ jobs:
         run: docker build -t haraldka/yosukebot:$(echo $GITHUB_SHA | head -c7) .
 
      -  name: Log in to Docker Hub
-        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD}} "7:4[3jN~_&h%yK^"
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD}}
 
       - name: Push image to Docker Hub
         run: docker push haraldka/yosukebot:$(echo $GITHUB_SHA | head -c7)
