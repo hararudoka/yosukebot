@@ -1,7 +1,6 @@
 package main
 
 import (
-	"github.com/joho/godotenv"
 	"log"
 	"os"
 	"time"
@@ -12,10 +11,6 @@ import (
 
 func main() {
 	//log.SetFlags(log.Lshortfile)
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
 
 	token := os.Getenv("TOKEN")
 
