@@ -8,8 +8,8 @@ on:
     branches:
       - main
 env:
-  REGISTRY: "docker.io/haraldka/yosukebot"
-  IMAGE_NAME: "bot"
+  REGISTRY: "docker.io/haraldka"
+  IMAGE_NAME: "yosukebot"
   CONTAINER_NAME: "bot"
   LOGS_PATH: "/root/bot/api/logs/prod"
 
@@ -77,4 +77,4 @@ jobs:
             --restart always \
             --publish 8000:8000 \
             --name $(echo $CONTAINER_NAME) \
-            $(echo $REGISTRY):$(echo $GITHUB_SHA | head -c7)
+            $(echo $REGISTRY)/$(echo $IMAGE_NAME):$(echo $GITHUB_SHA | head -c7)
