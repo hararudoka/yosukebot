@@ -76,7 +76,7 @@ jobs:
             docker rm $(echo $CONTAINER_NAME)
 
             # Run a new container from a new image
-            docker run --env $(echo ${{ secrets.TOKEN }}) \
+            docker run --env TOKEN=$(echo ${{ secrets.TOKEN }}) \
             --restart always \
             --publish 8000:8000 \
             --name $(echo $CONTAINER_NAME) \
