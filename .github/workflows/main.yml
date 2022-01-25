@@ -26,6 +26,9 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
-      - name: docker run bot
+      - name: docker build
+        run: docker build -t bot .
+        
+      - name: docker run
         run: docker run .
 
