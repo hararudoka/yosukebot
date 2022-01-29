@@ -10,7 +10,7 @@ on:
 env:
   REGISTRY: "haraldka"
   IMAGE_NAME: "yosukebot"
-  CONTAINER_NAME: "bot"
+  CONTAINER_NAME: "yosukebot"
 
 jobs:
   test:
