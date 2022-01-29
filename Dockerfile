@@ -1,22 +1,19 @@
 FROM golang:alpine as builder
 
-RUN go version
-RUN apk add git
+WORKDIR /build
 
-COPY ./ /github.com/hararudoka/yosukebot
-WORKDIR /github.com/hararudoka/yosukebot
+COPY go.mod go.sum ./
 
-RUN go mod download && go get -u ./...
-RUN CGO_ENABLED=0 GOOS=linux go build -o ./.bin/app ./cmd/main.go
+RUN go mod download
 
-#lightweight docker container with binary
-FROM alpine:latest
+COPY . .
 
-RUN apk --no-cache add ca-certificates
-WORKDIR /root/
+RUN go build
 
-COPY --from=0 /github.com/hararudoka/yosukebot/.bin/app .
+FROM alpine
 
-EXPOSE 8000
+WORKDIR /app
 
-CMD [ "./app"]
+COPY --from=builder /build/yosukebot .
+
+ENTRYPOINT ["/app/yosukebot"]
