@@ -8,12 +8,12 @@ RUN go mod download
 
 COPY . .
 
-RUN go build ./cmd/main.go
+RUN go build ./cmd/bot
 
 FROM alpine
 
 WORKDIR /app
 
-COPY --from=builder /build/yosukebot .
+COPY --from=builder /build/bot .
 
-ENTRYPOINT ["/app/yosukebot"]
+ENTRYPOINT ["/app/bot"]
